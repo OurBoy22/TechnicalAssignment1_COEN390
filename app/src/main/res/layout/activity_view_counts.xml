@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_view_counts">
+
+    <include
+        android:id="@+id/myToolbar"
+        layout="@layout/toolbar"
+        android:layout_width="413dp"
+        android:layout_height="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/unamed"
+        android:layout_width="422dp"
+        android:layout_height="wrap_content"
+        android:background="#454444"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar">
+
+        <TextView
+            android:id="@+id/countA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="10dp"
+            android:text="countA"
+            android:textSize="28sp"
+            android:typeface="normal" />
+
+        <TextView
+            android:id="@+id/countB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="10dp"
+            android:text="countB"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/countC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="10dp"
+            android:text="countC"
+            android:textSize="28sp" />
+
+        <Button
+            android:id="@+id/toggleDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/eventList"
+        android:layout_width="416dp"
+        android:layout_height="570dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unamed" />
+</androidx.constraintlayout.widget.ConstraintLayout>
