@@ -56,8 +56,8 @@ public class ActivityViewCounts extends MainActivity {
         countC.setText(preferencesController.getString("EventC").toString() + ": " + Integer.toString(preferencesController.getInt("count3")));
 
         //get the button click history and put it into an array of Strings
-        String numString = flipArray(preferencesController.getString("arrayEvents").toString());
-        String[] eventNameString = translateArray(numString).toString().replace("[","").replace("]","").split(",");
+//        String numString = flipArray(preferencesController.getString("arrayEvents").toString());
+        String[] eventNameString = translateArray(preferencesController.getString("arrayEvents")).toString().replace("[","").replace("]","").split(",");
 
         //display the list of button click history
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout. simple_list_item_1, eventNameString);
@@ -84,8 +84,12 @@ public class ActivityViewCounts extends MainActivity {
 
     void toggleView(){ // function to toggle the view of the list of button history
         if (!viewName){ // if the boolean of viewNames is false
-            String numString = flipArray(preferencesController.getString("arrayEvents").toString()); //reverse button history string in sharedPreferences
-            String[] eventNameString = translateArray(numString).toString().split(",");// translate string from numbers to names of Events
+//            String numString = flipArray(preferencesController.getString("arrayEvents").toString()); //reverse button history string in sharedPreferences
+//            String[] eventNameString = translateArray(numString).toString().split(",");// translate string from numbers to names of Events
+
+//            String numString = flipArray(preferencesController.getString("arrayEvents").toString()); //reverse button history string in sharedPreferences
+            String[] eventNameString = translateArray(preferencesController.getString("arrayEvents")).toString().split(",");// translate string from numbers to names of Events
+
 
             //update the list
             ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout. simple_list_item_1, eventNameString);
@@ -93,8 +97,8 @@ public class ActivityViewCounts extends MainActivity {
             viewName = true; //update toggle boolean
         }
         else{
-            String [] eventNameString = flipArray(preferencesController.getString("arrayEvents").toString()).replace(" ", "").replace("[","").replace("]","").split(",");//reverse button history string in sharedPreferences
-
+//            String [] eventNameString = flipArray(preferencesController.getString("arrayEvents").toString()).replace(" ", "").replace("[","").replace("]","").split(",");//reverse button history string in sharedPreferences
+            String[] eventNameString = (preferencesController.getString("arrayEvents")).toString().split(",");// translate string from numbers to names of Events
             //update the list
             ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout. simple_list_item_1, eventNameString);
             eventList.setAdapter(arrayAdapter);
@@ -102,7 +106,7 @@ public class ActivityViewCounts extends MainActivity {
         }
     }
 
-    String flipArray(String arrString){ // function to reverse the array of Strings
+    String flipArray(String arrString){ // function to reverse the array of Strings (not needed in the end)
         String[] array = arrString.replace(" ", "").replace("[","").replace("]","").split(",");
         ArrayList numArray = new ArrayList();
         for (int i = 0; i < array.length; i++){
