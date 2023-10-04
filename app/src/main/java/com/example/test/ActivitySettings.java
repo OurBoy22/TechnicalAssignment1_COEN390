@@ -1,5 +1,7 @@
 package com.example.test;
 
+import static com.example.test.Count.checkZeroMaxCount;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -41,7 +43,7 @@ public class ActivitySettings extends MainActivity {
         //instatiate the Actionbar
         setSupportActionBar(findViewById(R.id.myToolbar));
         ActionBar settingsActionBar = getSupportActionBar();
-        settingsActionBar.setTitle("Settings"); // set title of the actionbar
+        settingsActionBar.setTitle("Settings Activity"); // set title of the actionbar
 
         //make back arrow clickable and visible (???)
         settingsActionBar.setDisplayHomeAsUpEnabled(true);
@@ -60,7 +62,7 @@ public class ActivitySettings extends MainActivity {
         editTextCounter1.setText(preferencesController.getString("EventA").toString());
         editTextCounter2.setText(preferencesController.getString("EventB").toString());
         editTextCounter3.setText(preferencesController.getString("EventC").toString());
-        editTextMaxCount.setText(Integer.toString(preferencesController.getInt("MaxCount")));
+        editTextMaxCount.setText(checkZeroMaxCount((preferencesController.getInt("MaxCount"))));
 
 
         //edit button listener (NOT NEEDED)
@@ -147,7 +149,7 @@ public class ActivitySettings extends MainActivity {
             }
         }
 
-        if (!(testStringNum(editTextMaxCount.getText().toString()))){ // do not allow letters in max count field
+        if (!(testStringNum(editTextMaxCount.getText().toString())) || (editTextMaxCount.getText().toString().length() == 0)) { // do not allow letters in max count field and lenght 0
             test_2 = false;
         }
         //make sure that the range of max counts is between 5 and 200, and also is not less than the current count saved

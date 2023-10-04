@@ -36,7 +36,7 @@ public class ActivityViewCounts extends MainActivity {
         setSupportActionBar(findViewById(R.id.myToolbar));
         ActionBar settingsActionBar = getSupportActionBar();
 
-        settingsActionBar.setTitle("View Counts"); // set the title of the ActionBar
+        settingsActionBar.setTitle("Data Activity"); // set the title of the ActionBar
 
         //make back arrow clickable and visible (???)
         settingsActionBar.setDisplayHomeAsUpEnabled(true);
@@ -84,10 +84,11 @@ public class ActivityViewCounts extends MainActivity {
 
     void toggleView(){ // function to toggle the view of the list of button history
         if (!viewName){ // if the boolean of viewNames is false
-//            String numString = flipArray(preferencesController.getString("arrayEvents").toString()); //reverse button history string in sharedPreferences
-//            String[] eventNameString = translateArray(numString).toString().split(",");// translate string from numbers to names of Events
+            //update text
+            countA.setText(preferencesController.getString("EventA").toString() + ": " + Integer.toString(preferencesController.getInt("count1")));
+            countB.setText(preferencesController.getString("EventB").toString() + ": " + Integer.toString(preferencesController.getInt("count2")));
+            countC.setText(preferencesController.getString("EventC").toString() + ": " + Integer.toString(preferencesController.getInt("count3")));
 
-//            String numString = flipArray(preferencesController.getString("arrayEvents").toString()); //reverse button history string in sharedPreferences
             String[] eventNameString = translateArray(preferencesController.getString("arrayEvents")).toString().split(",");// translate string from numbers to names of Events
 
 
@@ -97,7 +98,11 @@ public class ActivityViewCounts extends MainActivity {
             viewName = true; //update toggle boolean
         }
         else{
-//            String [] eventNameString = flipArray(preferencesController.getString("arrayEvents").toString()).replace(" ", "").replace("[","").replace("]","").split(",");//reverse button history string in sharedPreferences
+            //update text
+            countA.setText("Counter 1: " + Integer.toString(preferencesController.getInt("count1")));
+            countB.setText("Counter 2: " + Integer.toString(preferencesController.getInt("count2")));
+            countC.setText("Counter 3: " + Integer.toString(preferencesController.getInt("count3")));
+
             String[] eventNameString = (preferencesController.getString("arrayEvents")).toString().split(",");// translate string from numbers to names of Events
             //update the list
             ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout. simple_list_item_1, eventNameString);

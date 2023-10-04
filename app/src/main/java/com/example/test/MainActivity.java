@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
             Log.d("prefsCreated", "Creating..." + " "+  this);
             preferencesController.setPreference("prefsCreated", true);   //Set prefsCreated to true, to indicate that there is already information saved
             ArrayList arrayEvents =  new ArrayList(); // used to save the string of history of pressed buttons
-            preferencesController.setPreference("EventA", "Event A"); // set name of EventA button (or button 1)
-            preferencesController.setPreference("EventB", "Event B");// set name of EventB button (or button 2)
-            preferencesController.setPreference("EventC", "Event C");// set name of EventB button (or button 3)
-            preferencesController.setPreference("MaxCount", 20); // set the max count of buttons to a default of 20
+            preferencesController.setPreference("EventA", ""); // set name of EventA button (or button 1)
+            preferencesController.setPreference("EventB", "");// set name of EventB button (or button 2)
+            preferencesController.setPreference("EventC", "");// set name of EventB button (or button 3)
+            preferencesController.setPreference("MaxCount", 0); // set the max count of buttons to a default of 0
             preferencesController.setPreference("count1", 0); //set current count of EventA button to 0
             preferencesController.setPreference("count2", 0);  //set current count of EventB button to 0
             preferencesController.setPreference("count3", 0);  //set current count of EventC button to 0

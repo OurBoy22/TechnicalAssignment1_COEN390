@@ -31,6 +31,15 @@ public class Count {
         return true;
     }
 
+    public static String checkZeroMaxCount(int num_in){
+        if (num_in == 0){
+            return "";
+        }
+        else{
+            return Integer.toString(num_in);
+        }
+    }
+
     //setter and getter
     public void setValue(int value) {
         this.value = value;
