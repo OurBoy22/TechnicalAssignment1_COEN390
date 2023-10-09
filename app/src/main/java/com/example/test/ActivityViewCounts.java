@@ -24,6 +24,7 @@ public class ActivityViewCounts extends MainActivity {
     public TextView countA;
     public TextView countB;
     public TextView countC;
+    public TextView countTotal;
     public Button toggleDisplay;
     public boolean viewName = true;
 
@@ -47,6 +48,7 @@ public class ActivityViewCounts extends MainActivity {
         countA = findViewById(R.id.countA);
         countB = findViewById(R.id.countB);
         countC = findViewById(R.id.countC);
+        countTotal = findViewById(R.id.countTotal);
         toggleDisplay = findViewById(R.id.toggleDisplay);
         toggleDisplay.setVisibility(View.INVISIBLE);
 
@@ -54,7 +56,7 @@ public class ActivityViewCounts extends MainActivity {
         countA.setText(preferencesController.getString("EventA").toString() + ": " + Integer.toString(preferencesController.getInt("count1")));
         countB.setText(preferencesController.getString("EventB").toString() + ": " + Integer.toString(preferencesController.getInt("count2")));
         countC.setText(preferencesController.getString("EventC").toString() + ": " + Integer.toString(preferencesController.getInt("count3")));
-
+        countTotal.setText("Total events" + ": " + Integer.toString(preferencesController.getInt("currentCount")));
         //get the button click history and put it into an array of Strings
 //        String numString = flipArray(preferencesController.getString("arrayEvents").toString());
         String[] eventNameString = translateArray(preferencesController.getString("arrayEvents")).toString().replace("[","").replace("]","").split(",");
